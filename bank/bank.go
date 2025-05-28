@@ -23,6 +23,17 @@ func main() {
 		fmt.Scan(&depositAmount)
 		accountBalance += depositAmount
 		fmt.Println("Your new balance is: ", accountBalance)
+	} else if choice == 3 {
+		fmt.Print("Your Withdrawal: ")
+		var withdrawalAmount float64
+		fmt.Scan(&withdrawalAmount)
+		if withdrawalAmount <= accountBalance {
+			accountBalance -= withdrawalAmount
+			fmt.Println("Your new balance is: ", accountBalance)
+		} else {
+			fmt.Println("Insufficient balance")
+		}
+
 	}
 
 	fmt.Println("Your Choice:", choice)
