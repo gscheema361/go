@@ -33,7 +33,8 @@ func main() {
 		} else {
 			fmt.Println("Insufficient balance")
 		}
-
+	} else {
+		fmt.Println("Exiting the program")
 	}
 
 	fmt.Println("Your Choice:", choice)
