@@ -1,23 +1,52 @@
 package main
 
-func main() {
+import (
+	"fmt"
+)
 
+type Product struct {
+	Title string
+	ID    string
+	Price float64
 }
 
-// Time to practice what you learned!
+func main() {
+	// 1) Create an array of 3 hobbies
+	hobbies := [3]string{"Reading", "Cycling", "Gaming"}
+	fmt.Println("Hobbies:", hobbies)
 
-// 1) Create a new array (!) that contains three hobbies you have
-// 		Output (print) that array in the command line.
-// 2) Also output more data about that array:
-//		- The first element (standalone)
-//		- The second and third element combined as a new list
-// 3) Create a slice based on the first element that contains
-//		the first and second elements.
-//		Create that slice in two different ways (i.e. create two slices in the end)
-// 4) Re-slice the slice from (3) and change it to contain the second
-//		and last element of the original array.
-// 5) Create a "dynamic array" that contains your course goals (at least 2 goals)
-// 6) Set the second goal to a different one AND then add a third goal to that existing dynamic array
-// 7) Bonus: Create a "Product" struct with title, id, price and create a
-//		dynamic list of products (at least 2 products).
-//		Then add a third product to the existing list of products.
+	// 2) Output more data about the array
+	fmt.Println("First hobby:", hobbies[0])
+	secondAndThird := []string{hobbies[1], hobbies[2]}
+	fmt.Println("Second and Third hobbies as list:", secondAndThird)
+
+	// 3) Create two slices from the array (first and second elements)
+	slice1 := hobbies[0:2]
+	slice2 := hobbies[:2]
+	fmt.Println("Slice1 (0:2):", slice1)
+	fmt.Println("Slice2 (:2):", slice2)
+
+	// 4) Re-slice to contain second and last element
+	reSliced := []string{hobbies[1], hobbies[2]}
+	fmt.Println("Re-sliced (second and last):", reSliced)
+
+	// 5) Dynamic array (slice) for course goals
+	courseGoals := []string{"Learn Go basics", "Build a real-world project"}
+	fmt.Println("Course Goals:", courseGoals)
+
+	// 6) Change second goal and add a third goal
+	courseGoals[1] = "Master Go concurrency"
+	courseGoals = append(courseGoals, "Contribute to open-source in Go")
+	fmt.Println("Updated Course Goals:", courseGoals)
+
+	// 7) Bonus: Product struct and dynamic list
+	products := []Product{
+		{Title: "Laptop", ID: "P1", Price: 1200.50},
+		{Title: "Smartphone", ID: "P2", Price: 800.00},
+	}
+	fmt.Println("Products:", products)
+
+	// Add a third product
+	products = append(products, Product{Title: "Headphones", ID: "P3", Price: 150.75})
+	fmt.Println("Updated Products:", products)
+}
