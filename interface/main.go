@@ -28,6 +28,13 @@ type outputable interface {
 }
 
 func main() {
+	// printSomething(1)
+	// printSomething(2.5)
+	// printSomething("hello")
+	// printSomething(true)
+	// printSomething([]int{1, 2, 3})
+	// printSomething(map[string]int{"a": 1, "b": 2})
+	printSomething(1)
 	title, content := getNoteData()
 	todoText := getUserInput("Todo Text: ")
 	todo, err := todo.New(todoText)
@@ -50,6 +57,38 @@ func main() {
 	}
 
 	outputData(userNote)
+
+}
+
+func printSomething(value interface{}) {
+
+	intVal, ok := value.(int)
+	if ok {
+		fmt.Println("int:", intVal)
+	}
+	strVal, ok := value.(string)
+	if ok {
+		fmt.Println("str:", strVal)
+	}
+	floatVal, ok := value.(float64)
+	if ok {
+		fmt.Println("float:", floatVal)
+	} else {
+		fmt.Println("float: not found")
+	}
+
+	// switch value.(type) {
+	// case int:
+	// 	fmt.Println("int:", value)
+	// case float64:
+	// 	fmt.Println("float64:", value)
+	// case string:
+	// 	fmt.Println("string:", value)
+	// case bool:
+	// 	fmt.Println("bool:", value)
+	// default:
+	// 	fmt.Println("unknown type:", reflect.TypeOf(value))
+	// }
 
 }
 
