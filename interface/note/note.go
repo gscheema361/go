@@ -16,7 +16,7 @@ type Note struct {
 }
 
 func (note Note) Display() {
-	fmt.Printf("Your Note titled %v has the following content:\n\n%v\n\n", note.Title, note.Content)
+	fmt.Printf("Your note titled %v has the following content:\n\n%v\n\n", note.Title, note.Content)
 }
 
 func (note Note) Save() error {
@@ -29,14 +29,14 @@ func (note Note) Save() error {
 		return err
 	}
 
-	os.WriteFile(fileName, json, 0644)
-	return nil
+	return os.WriteFile(fileName, json, 0644)
 }
 
 func New(title, content string) (Note, error) {
 	if title == "" || content == "" {
-		return Note{}, errors.New("Invalid Input!")
+		return Note{}, errors.New("Invalid input.")
 	}
+
 	return Note{
 		Title:     title,
 		Content:   content,
